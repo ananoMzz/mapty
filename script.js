@@ -100,19 +100,6 @@ class App {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.#map);
 
-    L.marker([42.074831, 44.106209])
-      .addTo(this.#map)
-      .bindPopup(
-        L.popup({
-          maxWidth: 250,
-          minWidth: 100,
-          autoClose: false,
-          closeOnClick: false,
-          className: `running-popup`,
-        })
-      )
-      .setPopupContent('Home Garejvari')
-      .openPopup();
     //Handling clicks on map
     this.#map.on('click', this._showForm.bind(this));
     //Render map
@@ -281,7 +268,6 @@ class App {
     const data = JSON.parse(localStorage.getItem('workout'));
     // console.log(data);
     if (!data) return;
-
 
     this.#workouts = data;
     this.#workouts.forEach(work => {
